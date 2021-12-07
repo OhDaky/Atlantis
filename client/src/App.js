@@ -13,17 +13,15 @@ import './App.css';
 function App() {
   return (
     <>
-      <Router>
-        <Routes>
-          <Route exact path="/" component={Landing} />
-          <Route path="/main" component={MainPage} />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/post" component={Post} />
-          <Route path="/error" component={Error404} />
-          <Route path="*" component={Error404} />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route exact path="/" element={<Landing />} />
+        <Route path="/main" element={<MainPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/post" element={<Post />} />
+        <Route path="/error" element={<Error404 />} />
+        <Route path="*" element={<Error404 />} />
+      </Routes>
     </>
   );
 }

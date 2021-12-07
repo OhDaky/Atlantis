@@ -1,20 +1,17 @@
-html, body {
-  height: 100%;
-}
 
-html {
-  background: #393E46;
-}
 
-body {
-  position: absolute;
-  /* left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%); */
+.test {
+  background-color: #000000;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  font-size: 100px;
 }
 
 .main-page {
   width: 100vw;
+  height: 100vh;
+  background-color: #13ADB5;
   position: relative;
 }
 
