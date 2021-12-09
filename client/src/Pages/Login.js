@@ -63,13 +63,39 @@ export default function Login() {
   return (
     <div>
       <Navigation />
-      <p>login</p>
       <div className="login-container">
         <div className="login-box">
-          <div className="login-container-title"></div>
+          <div className="login-container-title">Login</div>
+          <form onSubmit={(e) => e.preventDefault()}>
+            <div className="login-input-email">
+              <div>email</div>
+              <input type="email"></input>
+            </div>
+            <div className="login-input-password">
+              <div>password</div>
+              <input type="password"></input>
+            </div>
+          </form>
         </div>
+        <div>
+          <button className="login__btn-login"
+                  type="submit"
+                  onClick={handleLogin}>로그인</button>
+        </div>
+        <div className="login-user-search">
+          <a href="/">ID/PW 찾기</a>
+        </div>
+        <div className="Kakao-login">
+          <a>카카오 로그인</a>
+        </div>
+        <div className="Naver-login">
+          <a>네이버 로그인</a>
+        </div>
+        <div className="Google-login">
+          <a>구글 로그인</a>
+        </div>
+        <div>sns 계정으로 간편하게 로그인하세요</div>
       </div>
-
     </div>
   );
 }
