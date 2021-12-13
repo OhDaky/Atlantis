@@ -96,6 +96,7 @@ export default function Login() {
         </div>
         <div>sns 계정으로 간편하게 로그인하세요</div>
       </div>
+      <div className="login-img">로그인 이미지</div>
     </div>
   );
 }
