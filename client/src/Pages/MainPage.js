@@ -20,23 +20,36 @@ export default function MainPage() {
   return (
     <div className="main-page">
       {/* <Navigation /> */}
-      {open ? (
+      <div>
+        <FontAwesomeIcon icon={faBars} className="main-hamburger" onClick={openChange} />
+        <div className="main-title">Atlantis</div>
+        <div className='box'>
+          <div className='wave -one'></div>
+          <div className='wave -two'></div>
+          <div className='wave -three'></div>
+        </div>
+          <a className="main-to-home" href="/home">To the Atlantis</a>
+      </div>
+      {open ?
+        (
+          <></>
+        ): (
           <>
-            <div className="main-title">Atlantis</div>
-            <FontAwesomeIcon icon={faBars} className="main-hamburger" onClick={ openChange }/>
-            <div className="main-nav">main</div>
-            <div className='box'>
-              <div className='wave -one'></div>
-              <div className='wave -two'></div>
-              <div className='wave -three'></div>
-            </div>
-            <a className="main-to-home" href="../">To the Atlantis</a>
-          </>
-      ) : (
-          <>
-            <div className="main-nav-open"></div>
-            <FontAwesomeIcon icon={faBars} className="main-hamburger" onClick={ openChange }/>
-
+            <ul className="main-hamburger-list">
+              <FontAwesomeIcon icon={faBars} className="main-hamburger -open" onClick={openChange} />
+              <li>
+                <a onClick={() => window.location.replace("/home") }>HOME</a>
+              </li>
+              <li>
+                <a onClick={() => window.location.replace("/post") }>POST</a>
+              </li>
+              <li>
+                <a onClick={() => window.location.replace("/like") }>LIKE</a>
+              </li>
+              <li>
+                <a onClick={() => window.location.replace("/mypage") }>MYPAGE</a>
+              </li>
+            </ul>
           </>
       )}
     </div>
