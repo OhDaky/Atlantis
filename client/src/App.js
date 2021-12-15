@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Landing from './Pages/Landing'
+import Landing from './Pages/Landing';
 import MainPage from './Pages/MainPage';
+import Mypage from './Pages/Mypage';
 import Login from './Pages/Login';
+import Like from './Pages/Like';
 import SignUp from './Pages/SignUp';
 import Post from './Pages/Post';
 import Error404 from './Pages/Error404';
+import Home from './Pages/Home';
 
 import './App.css';
 
@@ -14,9 +17,11 @@ function App() {
   return (
     <>
       <Routes>
-        <Route exact path="/" element={<Landing />} />
+        <Route exact path="/" element={<Home />} />
         <Route path="/main" element={<MainPage />} />
+        <Route path="/mypage" element={<Mypage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/like" element={<Like />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/post" element={<Post />} />
         <Route path="/error" element={<Error404 />} />
