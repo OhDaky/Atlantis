@@ -2,3 +2,5 @@
 *.md
 client/node_modules/.cache/.eslintcache
 .env
+
+client/node_modules
