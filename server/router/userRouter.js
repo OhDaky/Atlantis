@@ -15,5 +15,8 @@ userRouter.post("/signup", controller.signup);
 // 로그인
 userRouter.post("/login", controller.login);
 userRouter.post("/login/google", controller.loginGoogle);
+userRouter.post("/login/naver", controller.loginNaver);
+userRouter.post("/login/kakao", controller.loginKakao);
+
 
 module.exports = userRouter;
