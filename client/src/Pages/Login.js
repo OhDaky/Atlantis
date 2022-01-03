@@ -62,41 +62,42 @@ export default function Login() {
 
   return (
     <div>
-      <Navigation />
+      {/* <Navigation /> */}
       <div className="login-container">
+        <img className="login-img"></img>
         <div className="login-box">
-          <div className="login-container-title">Login</div>
+          <h2 className="login-container-title">Login</h2>
           <form onSubmit={(e) => e.preventDefault()}>
-            <div className="login-input-email">
-              <div>email</div>
-              <input type="email"></input>
-            </div>
-            <div className="login-input-password">
-              <div>password</div>
-              <input type="password"></input>
-            </div>
+            <fieldset className="login-user-email">
+              <label className="login-label">Email</label>
+              <input className="login-input-email" type="email" />
+            </fieldset>
+						<fieldset className="login-user-password">
+							<label className="login-label">Password</label>
+							<input className="login-input-password" type="password" />
+						</fieldset>
           </form>
         </div>
-        <div>
-          <button className="login__btn-login"
-                  type="submit"
-                  onClick={handleLogin}>로그인</button>
+        <div className="login-form-btn">
+          <button onClick={handleLogin}>Login</button>
+          <button onClick={() => navigate.push("/signup")}>Sign Up</button>
         </div>
-        <div className="login-user-search">
-          <a href="/">ID/PW 찾기</a>
+        <div className="login-bottom-contents">
+          <div className="login-user-search">
+            <a href="/">ID/PW 찾기</a>
+          </div>
+          <div className="Kakao-login">
+            <a>카카오 로그인</a>
+          </div>
+          <div className="Naver-login">
+            <a>네이버 로그인</a>
+          </div>
+          <div className="Google-login">
+            <a>구글 로그인</a>
+          </div>
+          <div>sns 계정으로 간편하게 로그인하세요</div>
         </div>
-        <div className="Kakao-login">
-          <a>카카오 로그인</a>
-        </div>
-        <div className="Naver-login">
-          <a>네이버 로그인</a>
-        </div>
-        <div className="Google-login">
-          <a>구글 로그인</a>
-        </div>
-        <div>sns 계정으로 간편하게 로그인하세요</div>
       </div>
-      <div className="login-img">로그인 이미지</div>
     </div>
   );
 }
