@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+import { firestore } from './firebase';
+
 import Landing from './Pages/Landing';
 import MainPage from './Pages/MainPage';
 import Mypage from './Pages/Mypage';
