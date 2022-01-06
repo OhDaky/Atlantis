@@ -10,6 +10,7 @@ import Login from "./Login";
 import Post from "./Post";
 import SignUp from "./SignUp";
 import Navigation from "../Components/Navigation";
+import Footer from "../Components/Footer";
 
 export default function MainPage() {
   const [isOpen, setOpen] = useState(true);
@@ -27,7 +28,6 @@ export default function MainPage() {
         <div className='box'>
           <div className='wave -one'></div>
           <FontAwesomeIcon icon={faFortAwesome} className="wave-castle"></FontAwesomeIcon>
-          {/* <FontAwesomeIcon icon={faFortAwesome} mask={faCircle} inverse style={{background: "-webkit-linear-gradient(#f2ebef, #ffffff15)"}} className="wave-castle"></FontAwesomeIcon> */}
           <div className='wave -two'></div>
           <div className='wave -three'></div>
         </div>
@@ -60,6 +60,7 @@ export default function MainPage() {
           © 2022 CITEA_O. ALL RIGHTS RESERVED.
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
