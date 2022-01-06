@@ -1,49 +1,126 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import "./Style/Navigation.css";
-import "./Style/bootstrap.css";
+import "../Pages/Style/Reset.css"
 
 export default function Navigation() {
+  const history = useNavigate();
+	// const dispatch = useDispatch();
+	// const userState = useSelector((state: RootReducerType) => state.userReducer);
+	const [isLogin, setIsLogin] = useState(false);
+	const [open, setOpen] = useState(true);
+	const API_URL = process.env.REACT_APP_API_URL;
+
+	const logInHandler = () => {
+
+  };
+
+	const logoutHandler = async () => {
+
+	};
+
+	const openChange = () => {
+		setOpen(!open);
+	};
+
+	const mypageHandler = () => {
+
+	};
+	
+	useEffect(() => {
+		logInHandler();
+	}, [isLogin]);
+
+	useEffect(() => {
+		openChange();
+	}, []);
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="/">Atlantis</a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse" id="navbarColor02">
-            <ul className="navbar-nav me-auto">
-              <li className="nav-item">
-                <a className="nav-link" href="/post">Post
-                  <span className="visually-hidden">(current)</span>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/like">Like</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/mypage">Mypage</a>
-              </li>
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                <div className="dropdown-menu">
-                  <a className="dropdown-item" href="/post">Post</a>
-                  <a className="dropdown-item" href="/like">Like</a>
-                  <a className="dropdown-item" href="/mypage">Mypage</a>
-                  <div className="dropdown-divider"></div>
-                  <a className="dropdown-item" href="/logout">nickname 로그아웃</a>
-                </div>
-              </li>
-            </ul>
-            <form className="d-flex">
-              <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
+			<nav className="navigation">
+				<div className="nav-container">
+					<div className="left-nav-bar">
+						<img className="nav-logo" src="logo.png" alt="logo" onClick={() => window.location.replace("/home")} />
+					</div>
+					<ul className="right-nav-bar">
+						<li>
+							<a onClick={() => window.location.replace("/")}>Main</a>
+						</li>
+						<li>
+							<a onClick={() => window.location.replace("/post")}>Post</a>
+            </li>
+            <li>
+							<a onClick={() => window.location.replace("/like")}>Like</a>
+						</li>
+						<li>
+							<a onClick={() => window.location.replace("/mypage")}>Mypage</a>
+						</li>
+						{isLogin ? (
+							<li>
+								<a className="nav-login-btn" onClick={logoutHandler}>
+									Logout
+								</a>
+							</li>
+						) : (
+							<li>
+								<a className="nav-login-btn" onClick={() => window.location.replace("/login")}>
+									Login
+								</a>
+							</li>
+						)}
+					</ul>
+					{open ? (
+						<div className="nav-hamburger">
+							<button className="nav-close-btn" onClick={openChange}></button>
+							<ul className="nav-hamburger-bar">
+								<li>
+									<a onClick={() => window.location.replace("/")}>Main</a>
+								</li>
+								<li>
+									<a onClick={() => window.location.replace("/post")}>Post</a>
+                </li>
+                <li>
+									<a onClick={() => window.location.replace("/like")}>Like</a>
+								</li>
+								<li>
+                  <a onClick={() => window.location.replace("/mypage")}>Mypage</a>
+								</li>
+								<li>
+									<hr className="nav-hr"></hr>
+								</li>
+								{isLogin ? (
+									<>
+										<li>
+											<a>
+												<img
+													className="nav-user-img"
+													// src={userState.user.profileImage === null ? "profile-img.png" : userState.user.profileImage}
+												></img>
+												{/* {userState.user.nickname} */}
+											</a>
+										</li>
+										<li>
+											<a className="nav-login-btn" onClick={logoutHandler}>
+												Logout
+											</a>
+										</li>
+									</>
+								) : (
+									<li>
+										<a className="nav-login-btn" onClick={() => window.location.replace("/login")}>
+											Login
+										</a>
+									</li>
+								)}
+							</ul>
+						</div>
+					) : (
+						<button className="nav-hamburger-btn" onClick={openChange}></button>
+					)}
+				</div>
       </nav>
     </>
   )

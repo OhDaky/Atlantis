@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes, faMapSigns, faBacon, faSquareFull, faCircle, faSortDown } from "@fortawesome/free-solid-svg-icons";
+import { faFortAwesome } from "@fortawesome/free-brands-svg-icons"
 
 import "./Style/MainPage.css";
-import "../Components/Style/bootstrap.css";
+import "../Pages/Style/Reset.css"
 
 import Login from "./Login";
 import Post from "./Post";
@@ -11,10 +12,10 @@ import SignUp from "./SignUp";
 import Navigation from "../Components/Navigation";
 
 export default function MainPage() {
-  const [open, setOpen] = useState(true);
+  const [isOpen, setOpen] = useState(true);
   const openChange = () => {
-    console.log(open);
-    setOpen(!open);
+    console.log(isOpen);
+    setOpen(!isOpen);
   }
 
   return (
@@ -25,33 +26,40 @@ export default function MainPage() {
         <div className="main-title">Atlantis</div>
         <div className='box'>
           <div className='wave -one'></div>
+          <FontAwesomeIcon icon={faFortAwesome} className="wave-castle"></FontAwesomeIcon>
+          {/* <FontAwesomeIcon icon={faFortAwesome} mask={faCircle} inverse style={{background: "-webkit-linear-gradient(#f2ebef, #ffffff15)"}} className="wave-castle"></FontAwesomeIcon> */}
           <div className='wave -two'></div>
           <div className='wave -three'></div>
         </div>
-          <a className="main-to-home" href="/home">To the Atlantis</a>
+        <div className="main-intro">아틀란티스에 도착하신 것을 환영합니다</div>
+        <FontAwesomeIcon icon={faSortDown} className="main-second-page"></FontAwesomeIcon>
       </div>
-      {open ?
-        (
-          <></>
-        ): (
-          <>
-            <ul className="main-hamburger-list">
-              <FontAwesomeIcon icon={faBars} className="main-hamburger -open" onClick={openChange} />
-              <li>
-                <a onClick={() => window.location.replace("/home") }>HOME</a>
-              </li>
-              <li>
+      <div className={isOpen? "main-menu-open":"main-menu-close"}>
+        <FontAwesomeIcon icon={faTimes} className="main-hamburger -close" onClick={openChange} />
+        <div className="menu-table">
+          <div className="menu-table-cell">
+            <FontAwesomeIcon icon={faBacon} className="menu-map-sign"></FontAwesomeIcon>
+            <div className="menu-items">
+              <div>
+                <a className="active" onClick={() => window.location.replace("/home") }>HOME</a>
+              </div>
+              <div>
                 <a onClick={() => window.location.replace("/post") }>POST</a>
-              </li>
-              <li>
+              </div>
+              <div>
                 <a onClick={() => window.location.replace("/like") }>LIKE</a>
-              </li>
-              <li>
+              </div>
+              <div>
                 <a onClick={() => window.location.replace("/mypage") }>MYPAGE</a>
-              </li>
-            </ul>
-          </>
-      )}
+              </div>
+            </div>
+            <FontAwesomeIcon icon={faBacon} className="menu-map-sign"></FontAwesomeIcon>
+          </div>
+        </div>
+        <div className="menu-footer">
+          © 2022 CITEA_O. ALL RIGHTS RESERVED.
+        </div>
+      </div>
     </div>
   );
 }
