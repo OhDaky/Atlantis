@@ -29,8 +29,8 @@ body {
   top:50%;
   left: 50%;
   transform:translate(-50%, -50%);
-  width: 12rem;
-  height: 12rem;
+  width: 18rem;
+  height: 18rem;
   border-radius: 300px;
   box-shadow: 0 2px 30px rgba(154, 227, 228, 0.2);
   background: lighten(#f0f4c3, 10%);
@@ -40,7 +40,8 @@ body {
   overflow: hidden;
 }
 
-.main-second-page {
+.main-to-down {
+  display: block;
   position:absolute;
   top: 85%;
   align-self: center;
@@ -75,12 +76,8 @@ body {
 	justify-content: center;
 	align-items: center;
   position: absolute;
-  font-size: 8rem;
-  color: rgba(255, 255, 255, 0.825);
-  /* background: linear-gradient(to bottom, #f2ebef, #ffffff15); */
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  width: 12rem;
+  height: 12rem;
 }
 
 .wave.-three {
@@ -121,7 +118,7 @@ body {
 
 .main-intro {
   position:absolute;
-  top: 75%;
+  top: 25%;
   align-self: center;
   left: 50%;
   transform:translate(-50%, 0%);
@@ -276,10 +273,15 @@ body {
     margin-top: -175px;
   }
 
-  /* .box {
+  .box {
     width: 12rem;
     height: 12rem;
-  } */
+  }
+
+  .wave-castle {
+    width: 8rem;
+    height: 8rem;
+  }
 } 
 /* 모바일 가로, 테블릿 세로 (해상도 480px ~ 767px)*/ 
 @media all and (min-width:480px) and (max-width:767px) {
@@ -298,10 +300,18 @@ body {
     margin-left: -175px;
     margin-top: -175px;
   }
-
   .box {
-    width: 210px;
-    height: 210px;
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .wave-castle {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .main-intro {
+    font-size: 1rem;
   }
 } 
 /* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/ 
@@ -323,7 +333,15 @@ body {
   }
 
   .box {
-    width: 210px;
-    height: 210px;
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .wave-castle {
+    width: 8rem;
+    height: 8rem;
+  }
+  .main-intro {
+    font-size: .9rem;
   }
 }

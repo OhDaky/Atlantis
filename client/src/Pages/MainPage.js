@@ -1,66 +1,66 @@
-import React, { useState, useEffect } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes, faMapSigns, faBacon, faSquareFull, faCircle, faSortDown } from "@fortawesome/free-solid-svg-icons";
-import { faFortAwesome } from "@fortawesome/free-brands-svg-icons"
+import { faBars, faSortDown } from "@fortawesome/free-solid-svg-icons";
 
 import "./Style/MainPage.css";
 import "../Pages/Style/Reset.css"
+import CastleIcon from "./Style/castleIcon2.png";
 
 import Login from "./Login";
 import Post from "./Post";
 import SignUp from "./SignUp";
 import Navigation from "../Components/Navigation";
-import Footer from "../Components/Footer";
+import MainPage1 from "./MainPage1";
+import MainPage2 from "./MainPage2";
 
 export default function MainPage() {
   const [isOpen, setOpen] = useState(true);
   const openChange = () => {
-    console.log(isOpen);
     setOpen(!isOpen);
   }
 
+  const [isScroll, setIsScroll] = useState(false);
+
+	const onScrollEvent = useCallback(() => {
+		if (window.scrollY > 0) {
+			setIsScroll(true);
+		}
+		if (window.pageYOffset === 0) {
+			setIsScroll(false);
+		}
+	}, []);
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+		window.addEventListener("mousewheel", onScrollEvent);
+		return () => {
+			window.removeEventListener("mousewheel", onScrollEvent);
+		};
+	}, []);
+
   return (
-    <div className="main-page">
-      {/* <Navigation /> */}
-      <div>
-        <FontAwesomeIcon icon={faBars} className="main-hamburger" onClick={openChange} />
-        <div className="main-title">Atlantis</div>
-        <div className='box'>
-          <div className='wave -one'></div>
-          <FontAwesomeIcon icon={faFortAwesome} className="wave-castle"></FontAwesomeIcon>
-          <div className='wave -two'></div>
-          <div className='wave -three'></div>
-        </div>
-        <div className="main-intro">아틀란티스에 도착하신 것을 환영합니다</div>
-        <FontAwesomeIcon icon={faSortDown} className="main-second-page"></FontAwesomeIcon>
-      </div>
-      <div className={isOpen? "main-menu-open":"main-menu-close"}>
-        <FontAwesomeIcon icon={faTimes} className="main-hamburger -close" onClick={openChange} />
-        <div className="menu-table">
-          <div className="menu-table-cell">
-            <FontAwesomeIcon icon={faBacon} className="menu-map-sign"></FontAwesomeIcon>
-            <div className="menu-items">
-              <div>
-                <a className="active" onClick={() => window.location.replace("/home") }>HOME</a>
-              </div>
-              <div>
-                <a onClick={() => window.location.replace("/post") }>POST</a>
-              </div>
-              <div>
-                <a onClick={() => window.location.replace("/like") }>LIKE</a>
-              </div>
-              <div>
-                <a onClick={() => window.location.replace("/mypage") }>MYPAGE</a>
-              </div>
-            </div>
-            <FontAwesomeIcon icon={faBacon} className="menu-map-sign"></FontAwesomeIcon>
+    <>
+      <div className="main-page">
+        <div>
+          <FontAwesomeIcon icon={faBars} className="main-hamburger" onClick={openChange} />
+          {/* <div className="main-title">Atlantis</div>
+          <div className='box'>
+            <div className='wave -one'></div>
+            <img className="wave-castle" src={CastleIcon}></img>
+            <div className='wave -two'></div>
+            <div className='wave -three'></div>
           </div>
-        </div>
-        <div className="menu-footer">
-          © 2022 CITEA_O. ALL RIGHTS RESERVED.
+          <div className="main-intro">아틀란티스에 도착하신 것을 환영합니다</div>
+          <FontAwesomeIcon icon={faSortDown} className="main-second-page"></FontAwesomeIcon>
+        </div> */}
+          <MainPage1 />
+          <MainPage2 />
+        {isOpen ?
+          <></> :
+          <Navigation />
+        }
         </div>
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }
